@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: zuul
+    
+server:
+  port: 3001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+zuul:
+  retryable: true
+  sensitive-headers:
+
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 1000
+  MaxAutoRetriesNextServer: 1
+  MaxAutoRetries: 1
+
+
+
+
+
+#zuul:  可以不配  默认规则,从注册中心可以获取
+#  routes:
+#    item-service: /item-service/**
+#    user-service: /user-service/**
+#    order-service: /order-service/**
